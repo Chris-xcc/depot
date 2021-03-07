@@ -1,0 +1,22 @@
+version: '3'
+services:
+  web:
+    restart: always
+    build: .
+    command: bash -c rails s -b '0.0.0.0'
+    volumes:
+    - .:/myapp
+    ports:
+    - "3000:3000"
+    depends_on: 
+      - db
+  
+  db:
+    image: mysql:5.7
+    volumes: 
+      - "./maysql:/var/lib/mysql"
+    ports: 
+      - "3306:3306"
+    restart: always
+    environment: 
+      - MYSQL_ROOT_PASSWORD=root

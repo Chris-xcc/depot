@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   reconect: true
-  host: localhost
+  host: db
   pool: 8
   port: 3306
   username: root
